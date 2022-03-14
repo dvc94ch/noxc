@@ -27,6 +27,9 @@
 // Capabilities
 #import "ALTCapabilities.h"
 
+// AuthKit
+#import "AuthKit.h"
+
 //! Project version number for AltSign.
 FOUNDATION_EXPORT double AltSignVersionNumber;
 
