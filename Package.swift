@@ -5,7 +5,8 @@ import PackageDescription
 let package = Package(
     name: "noxc",
     dependencies: [
-        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.0.1")
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.0.1"),
+        .package(url: "https://github.com/krzyzanowskim/openssl", from: "1.0.0"),
     ],
     targets: [
         .executableTarget(
@@ -18,6 +19,10 @@ let package = Package(
         ),
         .target(
             name: "altsign",
+            dependencies: [
+                "corecrypto",
+                .product(name: "OpenSSL", package: "openssl")
+            ],
             path: "altsign",
             cSettings: [
                 .headerSearchPath("altsign/include"),
@@ -25,5 +30,13 @@ let package = Package(
                 .define("CORECRYPTO_DONOT_USE_TRANSPARENT_UNION", to: "1")
             ]
         ),
+        .target(
+            name: "corecrypto",
+            path: "corecrypto",
+            cSettings: [
+                .headerSearchPath(".."),
+                .define("CORECRYPTO_DONOT_USE_TRANSPARENT_UNION", to: "1")
+            ]
+        )
     ]
 )

@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "OpenSSL",
+        "repositoryURL": "https://github.com/krzyzanowskim/openssl",
+        "state": {
+          "branch": null,
+          "revision": "4ae145c1446851cda62fa4b09c7b5e5c540d7b20",
+          "version": "1.1.1300"
+        }
+      },
+      {
         "package": "swift-argument-parser",
         "repositoryURL": "https://github.com/apple/swift-argument-parser",
         "state": {
