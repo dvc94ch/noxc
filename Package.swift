@@ -11,9 +11,18 @@ let package = Package(
         .executableTarget(
             name: "noxc",
             dependencies: [
+                "altsign",
                 .product(name: "ArgumentParser", package: "swift-argument-parser")
             ],
             path: "src"
-        )
+        ),
+        .target(
+            name: "altsign",
+            path: "altsign",
+            cSettings: [
+                .headerSearchPath("altsign/include"),
+                .headerSearchPath("..")
+            ]
+        ),
     ]
 )
