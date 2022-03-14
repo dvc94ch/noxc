@@ -21,7 +21,8 @@ let package = Package(
             path: "altsign",
             cSettings: [
                 .headerSearchPath("altsign/include"),
-                .headerSearchPath("..")
+                .headerSearchPath(".."),
+                .define("CORECRYPTO_DONOT_USE_TRANSPARENT_UNION", to: "1")
             ]
         ),
     ]
