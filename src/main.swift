@@ -64,11 +64,13 @@ func authenticate() async throws -> (ALTAppleAPI, ALTAccount, ALTAppleAPISession
         routingInfo: UInt64(headers["X-Apple-I-MD-RINFO"] ?? "") ?? 0,
         deviceUniqueIdentifier: device.uniqueDeviceIdentifier,
         deviceSerialNumber: device.serialNumber,
-        deviceDescription: device.serverFriendlyDescription,
+        //deviceDescription: device.serverFriendlyDescription,
+        deviceDescription: "<MacBookPro15,1> <Mac OS X;10.15.2;19C57> <com.apple.AuthKit/1 (com.apple.dt.Xcode/3594.4.19)>",
         date: Date(),
         locale: .current,
         timeZone: .current
     )
+    print(anisetteData)
 
     let api = ALTAppleAPI.init()
 
